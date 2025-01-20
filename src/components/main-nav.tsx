@@ -5,15 +5,15 @@ import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 // import { Icons } from "@/components/icons";
-// import {
-//   NavigationMenu,
-//   NavigationMenuContent,
-//   NavigationMenuItem,
-//   NavigationMenuLink,
-//   NavigationMenuList,
-//   NavigationMenuTrigger,
-//   navigationMenuTriggerStyle,
-// } from "@/components/ui/navigation-menu";
+import {
+  // NavigationMenu,
+  // NavigationMenuContent,
+  // NavigationMenuItem,
+  NavigationMenuLink,
+  // NavigationMenuList,
+  // NavigationMenuTrigger,
+  // navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 // import { Icons } from "./icons";
 // import { ModeToggle } from "./ui/mode-toggle";
 // import { POSTS } from "@/lib/constants";
@@ -75,7 +75,7 @@ const ListItem = React.forwardRef<
 >(({ className, title, children, ...props }, ref) => {
   return (
     <li>
-      {/* <NavigationMenuLink asChild>
+      <NavigationMenuLink asChild>
         <a
           ref={ref}
           className={cn(
@@ -89,7 +89,7 @@ const ListItem = React.forwardRef<
             {children}
           </p>
         </a>
-      </NavigationMenuLink> */}
+      </NavigationMenuLink>
     </li>
   );
 });
