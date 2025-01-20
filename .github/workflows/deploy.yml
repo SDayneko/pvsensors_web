@@ -1,0 +1,40 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          # These come from your GitHub Secrets
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+
+          # If your SSH port is 22, no need to specify "port: ...",
+          # but if you changed it, put it here.
+
+          script: |
+            # Move to your application directory
+            cd /var/www/pvsensors
+
+            # Pull the latest code from main
+            git pull origin main
+
+            # Install dependencies via Bun
+            /home/ec2-user/.bun/bin/bun install
+
+            # Build Next.js
+            /home/ec2-user/.bun/bin/bun run build
+
+            # Restart your service so changes take effect
+            sudo systemctl restart pvsensors.service
