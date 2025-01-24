@@ -12,7 +12,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-export function ModeToggle() {
+
+interface ModeToggleProps {
+  /** If true, the toggle is hidden (renders null). Defaults to false. */
+  hidden?: boolean
+}
+
+export function ModeToggle({ hidden = false }: ModeToggleProps) {
   const { setTheme } = useTheme()
 
   return (

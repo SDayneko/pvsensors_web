@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from "next/link"
 import { Button } from './ui/button';
 import { ModeToggle } from './ui/mode-toggle';
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -13,24 +14,52 @@ export default function Navbar() {
       };
 
     return (
-        <nav className="bg-background border-border dark:bg-background dark:border-border">
+        <nav className="shadow-md bg-background border-border dark:shadow-gray-700 dark:bg-background dark:border-border ">
             <div className="max-w-(--breakpoint-xl) flex flex-wrap items-center justify-between mx-auto p-4">
+
+                {/* Left side: Logo/Brand */}
                 <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap text-foreground dark:text-foreground">PV Sensors</span>
+                    <span className="self-center text-2xl font-semibold whitespace-nowrap">
+                    <span className='text-yellow-500'>PV</span> <span className='text-foreground dark:text-foreground'>Sensors</span>
+                    </span>
                 </Link>
-                <Button
+
+                {/* Right side: ModeToggle + Hamburger/Close */}
+                <div className="flex items-center gap-2">
+                    {/* Move ModeToggle ABOVE the toggle button so it sits to the left */}
+                    <Button
                     onClick={handleToggle}
                     data-collapse-toggle="navbar-default" 
                     type="button" 
-                    className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-hidden focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" 
+                    className="relative bg-transparent hover:bg-gray-100 dark:hover:bg-accent border-none md:hidden" 
                     aria-controls="navbar-default" 
                     aria-expanded={isOpen}
                     >
-                    <span className="sr-only">Open main menu</span>
-                    <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                        <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
-                    </svg>
+                    {/* Hamburger icon (shown when menu is closed) */}
+                    <AiOutlineMenu 
+                        className={`h-[1.2rem w-[1.2rem]
+                            transition-all
+                            text-black
+                            dark:text-white
+                            ${isOpen ? "rotate-90 scale-0" : "rotate-0 scale-100"}`}
+                        />
+                    {/* Close icon (shown when menu is open) */}
+                    <AiOutlineClose 
+                        className={`absolute
+                            h-[1.2rem] w-[1.2rem]
+                            transition-all
+                            text-black
+                            dark:text-white
+                            ${isOpen ? "rotate-0 scale-100" : "rotate-90 scale-0"}`}
+                        aria-hidden="true"
+                        />
+                    <span className="sr-only">
+                        {isOpen ? "Close main menu" : "Open main menu"}
+                    </span>
                 </Button>
+                </div>
+
+                {/* 2) Collapsible Menu (appears below the top bar) */}
                 <div 
                     className={`${isOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} 
                     id="navbar-default"
@@ -40,7 +69,7 @@ export default function Navbar() {
                         <li>
                             <Link 
                                 href="#" 
-                                className="block py-2 px-3 rounded text-primary-foreground bg-primary hover:bg-primary/90" 
+                                className="nav-link" 
                                 aria-current="page">
                                 Home
                             </Link>
@@ -48,7 +77,7 @@ export default function Navbar() {
                         <li>
                             <Link 
                                 href="#" 
-                                className="block py-2 px-3 rounded hover:bg-accent hover:text-accent-foreground"
+                                className="nav-link"
                                 >
                                 News
                             </Link>
@@ -56,7 +85,7 @@ export default function Navbar() {
                         <li>
                             <Link 
                                 href="#"
-                                className="block py-2 px-3 rounded hover:bg-accent hover:text-accent-foreground"
+                                className="nav-link"
                                 >
                                   About
                             </Link>
@@ -64,15 +93,15 @@ export default function Navbar() {
                         <li>
                             <Link 
                                 href="#" 
-                                className="block py-2 px-3 rounded hover:bg-accent hover:text-accent-foreground"
+                                className="nav-link"
                                 >
                                 Contact
                             </Link>
                         </li>
                     </ul>
                 </div>
-                <div className="flex items-center justify-between w-20">
-                    <ModeToggle />
+                <div className="md:flex hidden md:visible">
+                    <ModeToggle hidden={!isOpen && typeof window !== "undefined" && window.innerWidth < 768} />
                 </div>
             </div>
         </nav>
