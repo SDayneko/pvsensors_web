@@ -5,7 +5,7 @@
 import Link from "next/link";
 // import { Input } from "./ui/input";
 // import { createSubscriber } from "@/lib/actions";
-import { useFormState } from "react-dom";
+// import { useFormState } from "react-dom";
 // import SubmitButton from "./SubmitButton";
 
 export default function Footer() {

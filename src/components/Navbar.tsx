@@ -6,7 +6,7 @@ import { Button } from './ui/button';
 import { ModeToggle } from './ui/mode-toggle';
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 
-export default function Navbar({ className }: { className?: string }) {
+export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleToggle = () => {
