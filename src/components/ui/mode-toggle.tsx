@@ -21,6 +21,10 @@ interface ModeToggleProps {
 export function ModeToggle({ hidden = false }: ModeToggleProps) {
   const { setTheme } = useTheme()
 
+  if (hidden) {
+    return null;
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
