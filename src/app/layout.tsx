@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "../styles/globals.css"
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/config/site";
+import Footer from "@/components/footer";
 
 // import Footer from "@/components/footer";
 
@@ -69,7 +70,7 @@ export default function RootLayout({
           disableTransitionOnChange
           >
           <main className="flex-1">{children}</main>
-          {/* <Footer />*/}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

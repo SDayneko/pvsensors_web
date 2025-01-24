@@ -6,7 +6,7 @@ import { Button } from './ui/button';
 import { ModeToggle } from './ui/mode-toggle';
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 
-export default function Navbar() {
+export default function Navbar({ className }: { className?: string }) {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleToggle = () => {
@@ -14,7 +14,7 @@ export default function Navbar() {
       };
 
     return (
-        <nav className="shadow-md bg-background border-border dark:shadow-gray-700 dark:bg-background dark:border-border ">
+        <nav className="bg-gray-100 border-border dark:bg-gray-800 dark:border-border ">
             <div className="max-w-(--breakpoint-xl) flex flex-wrap items-center justify-between mx-auto p-4">
 
                 {/* Left side: Logo/Brand */}
@@ -40,7 +40,7 @@ export default function Navbar() {
                         className={`h-[1.2rem w-[1.2rem]
                             transition-all
                             text-black
-                            dark:text-white
+                            dark:text-yellow-500
                             ${isOpen ? "rotate-90 scale-0" : "rotate-0 scale-100"}`}
                         />
                     {/* Close icon (shown when menu is open) */}
@@ -49,7 +49,7 @@ export default function Navbar() {
                             h-[1.2rem] w-[1.2rem]
                             transition-all
                             text-black
-                            dark:text-white
+                            dark:text-yellow-500
                             ${isOpen ? "rotate-0 scale-100" : "rotate-90 scale-0"}`}
                         aria-hidden="true"
                         />
@@ -64,8 +64,8 @@ export default function Navbar() {
                     className={`${isOpen ? 'block' : 'hidden'} w-full md:block md:w-auto`} 
                     id="navbar-default"
                     >
-                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-border rounded-lg bg-popover 
-                            md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-popover dark:border-border dark:text-foreground">
+                    <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-border rounded-lg
+                            md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 bg-gray-100 dark:bg-gray-800 dark:border-border dark:text-foreground">
                         <li>
                             <Link 
                                 href="#" 
