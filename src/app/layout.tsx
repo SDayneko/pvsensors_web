@@ -4,6 +4,7 @@ import "../styles/globals.css"
 import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/config/site";
 import Footer from "@/components/footer";
+import Navbar from "@/components/Navbar";
 
 // import Footer from "@/components/footer";
 
@@ -69,7 +70,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
           >
-          <main className="flex-1">{children}</main>
+          <Navbar />
+            <main className="flex flex-col items-start justify-evenly mt-16 md:flex-row">
+              {children}
+            </main>
           <Footer />
         </ThemeProvider>
       </body>
