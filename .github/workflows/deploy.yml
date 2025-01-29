@@ -34,7 +34,7 @@ jobs:
             /home/ec2-user/.bun/bin/bun install
 
             # Build Next.js
-            /home/ec2-user/.bun/bin/bun run build
+            # /home/ec2-user/.bun/bin/bun run build
 
             # Restart your service so changes take effect
             sudo systemctl restart pvsensors.service
