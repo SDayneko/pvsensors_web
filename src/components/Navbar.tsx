@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from './ui/button';
 import { ModeToggle } from './ui/mode-toggle';
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
+import LoginUser from './login-user';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -100,6 +101,7 @@ export default function Navbar() {
                         </li>
                     </ul>
                 </div>
+                <LoginUser />
                 <div className="md:flex hidden md:visible">
                     <ModeToggle hidden={!isOpen && typeof window !== "undefined" && window.innerWidth < 768} />
                 </div>

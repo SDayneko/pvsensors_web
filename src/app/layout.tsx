@@ -6,8 +6,6 @@ import { siteConfig } from "@/config/site";
 import Footer from "@/components/footer";
 import Navbar from "@/components/Navbar";
 
-// import Footer from "@/components/footer";
-
 const inter = Inter({ subsets: ["latin"] });
 
 
