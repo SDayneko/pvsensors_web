@@ -85,7 +85,7 @@ export default async function RootLayout({
                 <SignOut />
               </div>
             }
-            <main className="flex flex-col items-start justify-evenly mt-16 md:flex-row">
+            <main className="flex flex-row items-start justify-evenly mt-16">
               {children}
             </main>
           <Footer />

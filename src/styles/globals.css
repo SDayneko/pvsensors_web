@@ -273,3 +273,7 @@ table {
   content: "#";
   padding: 5px;
 }
+
+button {
+  @apply cursor-pointer;
+}

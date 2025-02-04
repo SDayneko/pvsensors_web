@@ -5,9 +5,9 @@ export default function LatestPosts() {
   const latestPosts = getBlogPosts();
   return (
     <>
-      <h2 className="inline-block font-heading text-4xl tracking-tight lg:text-5xl">
-        Recently <span className="text-yellow-500">Published</span>
-      </h2>
+      <h1 className="font-semibold inline-block font-heading text-2xl tracking-tight lg:text-3xl">
+        Recently <span className="text-yellow-600">Published</span>
+      </h1>
       {latestPosts
         .sort((a, b) => {
           if (

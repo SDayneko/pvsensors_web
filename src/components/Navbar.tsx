@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from './ui/button';
 import { ModeToggle } from './ui/mode-toggle';
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
+import { Icons } from './icons';
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
@@ -14,13 +15,16 @@ export default function Navbar() {
       };
 
     return (
-        <nav className="bg-gray-100 border-border dark:bg-gray-800 dark:border-border ">
+        <nav className="bg-gray-100 dark:bg-gray-800">
+            <div className="container mx-auto px-4 md:px-6">
             <div className="max-w-(--breakpoint-xl) flex flex-wrap items-center justify-between mx-auto p-4">
 
                 {/* Left side: Logo/Brand */}
                 <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+                    <Icons.logo className='h-6 w-6'/>
                     <span className="self-center text-2xl font-semibold whitespace-nowrap">
-                    <span className='text-yellow-500'>PV</span> <span className='text-foreground dark:text-foreground'>Sensors</span>
+                    <span className='text-yellow-600'>PV </span> 
+                    <span className='text-foreground dark:text-foreground'>Sensors</span>
                     </span>
                 </Link>
 
@@ -100,9 +104,13 @@ export default function Navbar() {
                         </li>
                     </ul>
                 </div>
-                <div className="md:flex hidden md:visible">
-                    <ModeToggle hidden={!isOpen && typeof window !== "undefined" && window.innerWidth < 768} />
+                <div className="flex items-center justify-between w-20">
+                    <ModeToggle />
+                    <Link href="/rss"> 
+                        <Icons.rss className='h-6 w-6'/>
+                    </Link>
                 </div>
+            </div>
             </div>
         </nav>
     )
