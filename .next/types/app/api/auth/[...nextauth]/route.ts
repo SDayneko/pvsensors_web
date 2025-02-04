@@ -1,4 +1,4 @@
-// File: /Users/sergey/Documents/Programming/029_pvsensors_web/pvsensors/pvsensors_web/src/app/api/auth/[...nextauth]/route.ts
+// File: /Users/sergey/Documents/Programming/029_pvsensors_web/pvsensors_web/src/app/api/auth/[...nextauth]/route.ts
 import * as entry from '../../../../../../src/app/api/auth/[...nextauth]/route.js'
 import type { NextRequest } from 'next/server.js'
 

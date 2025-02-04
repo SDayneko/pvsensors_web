@@ -1,7 +1,7 @@
 "use client";
 
 // import { POSTS } from "@/lib/constants";
-// import { Icons } from "./icons";
+import { Icons } from "./icons";
 import Link from "next/link";
 // import { Input } from "./ui/input";
 // import { createSubscriber } from "@/lib/actions";
@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              {/* <Icons.logo className="h-6 w-6" /> */}
+              <Icons.logo className="h-5 w-5" />
               <span className="text-md font-semibold"><span className='text-yellow-600'>PV </span>Sensors</span>
             </div>
             <p className="text-gray-500 dark:text-gray-400 text-sm">
@@ -30,7 +30,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Twitter"
               >
-                {/* <Icons.twitter className="h-6 w-6 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" /> */}
+                <Icons.X className="h-6 w-6 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" />
               </a>
               <a
                 href="https://github.com/sdayneko"
@@ -38,7 +38,15 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Github"
               >
-                {/* <Icons.gitHub className="h-6 w-6 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" /> */}
+                <Icons.gitHub className="h-6 w-6 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/daineko/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Github"
+              >
+                <Icons.Linkedin className="h-6 w-6 text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" />
               </a>
             </div>
           </div>

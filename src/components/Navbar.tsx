@@ -6,13 +6,15 @@ import { Button } from './ui/button';
 import { ModeToggle } from './ui/mode-toggle';
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai"
 import { Icons } from './icons';
+import { SignOut } from './sign-out';
+import { Session } from "next-auth";
 
-export default function Navbar() {
+export default function Navbar({ session }: { session: Session | null }) {
     const [isOpen, setIsOpen] = useState(false);
 
     const handleToggle = () => {
         setIsOpen((prev) => !prev);
-      };
+    };
 
     return (
         <nav className="bg-gray-100 dark:bg-gray-800">
@@ -110,6 +112,22 @@ export default function Navbar() {
                         <Icons.rss className='h-6 w-6'/>
                     </Link>
                 </div>
+                {/* Show user info if logged in */}
+                {session && (
+                        <div className="flex items-center gap-4 mt-4">
+                            {session.user?.image && (
+                                <img
+                                    src={session.user.image}
+                                    alt="User profile"
+                                    className="w-10 h-10 rounded-full border border-gray-300"
+                                />
+                            )}
+                            {/* <Link href="/profile" className="text-sm font-medium text-gray-900 dark:text-white">
+                                {session.user?.name}
+                            </Link> */}
+                            <SignOut />
+                        </div>
+                    )}
             </div>
             </div>
         </nav>

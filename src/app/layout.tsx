@@ -5,7 +5,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/config/site";
 import Footer from "@/components/footer";
 import Navbar from "@/components/Navbar";
-import { SignOut } from "@/components/sign-out";
 import { auth } from "@/lib/auth";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -71,20 +70,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
           >
-          <Navbar />
-            {session && 
-              <div className="flex items-center gap-4 mt-4">
-                {session.user?.image && (
-                  <img
-                    src={session.user.image}
-                    alt="User profile"
-                    className="w-10 h-10 rounded-full border border-gray-300"
-                    />
-                  )
-                }
-                <SignOut />
-              </div>
-            }
+          <Navbar session={session}/>
             <main className="flex flex-row items-start justify-evenly mt-16">
               {children}
             </main>

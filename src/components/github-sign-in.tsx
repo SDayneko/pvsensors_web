@@ -1,6 +1,6 @@
 import { signIn } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
-import { Github } from "@/components/ui/github";
+import { Icons } from "./icons";
 
 const GithubSignIn = () => {
   return (
@@ -11,7 +11,7 @@ const GithubSignIn = () => {
       }}
     >
       <Button className="w-full" variant="outline">
-        <Github />
+        <Icons.gitHub className="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300" />
         Continue with GitHub
       </Button>
     </form>
