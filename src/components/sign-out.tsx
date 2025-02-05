@@ -1,18 +1,19 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import { signOut } from "next-auth/react";
 
 const SignOut = () => {
-  const handleSignOut = async () => {
+  const handleSignOut = async (e: React.MouseEvent) => {
+    e.preventDefault(); // Prevent default link behavior
     await signOut();
   };
 
   return (
     <div className="flex justify-center">
-      <Button variant="destructive" onClick={handleSignOut}>
-        Sign Out
-      </Button>
+      <Link href="/" onClick={handleSignOut} passHref>
+        <span>Sign Out</span>
+      </Link>
     </div>
   );
 };

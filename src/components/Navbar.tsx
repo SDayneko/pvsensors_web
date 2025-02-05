@@ -75,7 +75,7 @@ export default function Navbar({ session }: { session: Session | null }) {
                             md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 bg-gray-100 dark:bg-gray-800 dark:border-border dark:text-foreground">
                         <li>
                             <Link 
-                                href="#" 
+                                href="/" 
                                 className="nav-link" 
                                 aria-current="page">
                                 Home
@@ -83,7 +83,7 @@ export default function Navbar({ session }: { session: Session | null }) {
                         </li>
                         <li>
                             <Link 
-                                href="#" 
+                                href="/blog" 
                                 className="nav-link"
                                 >
                                 News
@@ -91,7 +91,7 @@ export default function Navbar({ session }: { session: Session | null }) {
                         </li>
                         <li>
                             <Link 
-                                href="#"
+                                href="/about"
                                 className="nav-link"
                                 >
                                   About
@@ -99,7 +99,7 @@ export default function Navbar({ session }: { session: Session | null }) {
                         </li>
                         <li>
                             <Link 
-                                href="#" 
+                                href="/contacts" 
                                 className="nav-link"
                                 >
                                 Contact
@@ -117,7 +117,7 @@ export default function Navbar({ session }: { session: Session | null }) {
                 {session && (
                         <div>
                         <DropdownMenu >
-                            <DropdownMenuTrigger>
+                            <DropdownMenuTrigger asChild>
                                 <Button className="flex items-center gap-4 mt-4">
                                     {session.user?.image && (
                                         <img
@@ -127,11 +127,13 @@ export default function Navbar({ session }: { session: Session | null }) {
                                         />
                                     )}
                                 </Button>
-                            {/* <Link href="/profile" className="text-sm font-medium text-gray-900 dark:text-white">
-                                {session.user?.name}
-                            </Link> */}
                             </DropdownMenuTrigger>
                             <DropdownMenuContent align="end">
+                                <DropdownMenuItem>
+                                    <Link href="/profile" className="text-sm font-medium text-gray-900 dark:text-white">
+                                        Profile
+                                    </Link>
+                                </DropdownMenuItem>
                                 <DropdownMenuItem>
                                     <SignOut />
                                 </DropdownMenuItem>
