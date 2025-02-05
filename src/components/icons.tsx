@@ -5,7 +5,7 @@ import {
     Icon as LucidIcon,
   } from "lucide-react";
 
-import { FaSquareXTwitter, FaSquareGithub, FaLinkedin } from "react-icons/fa6";
+import { FaSquareXTwitter, FaSquareGithub, FaLinkedin, FaSun, FaMoon } from "react-icons/fa6";
 
 export type Icon = typeof LucidIcon;
 
@@ -16,4 +16,6 @@ export const Icons = {
     X: FaSquareXTwitter,
     gitHub: FaSquareGithub,
     Linkedin: FaLinkedin,
+    Sun: FaSun,
+    Moon: FaMoon,
   };
