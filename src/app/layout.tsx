@@ -71,9 +71,9 @@ export default async function RootLayout({
           disableTransitionOnChange
           >
           <Navbar session={session}/>
-            <main className="flex flex-row items-start justify-evenly mt-16">
-              {children}
-            </main>
+            {/* <main className="flex flex-row items-start justify-evenly mt-16"> */}
+            <main className="flex-1">{children}</main>
+            {/* </main> */}
           <Footer />
         </ThemeProvider>
       </body>
