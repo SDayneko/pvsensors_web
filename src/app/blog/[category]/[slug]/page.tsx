@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import { formatDate, getBlogPosts } from "../../utils";
 import Container from "@/components/Container";
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
+import { CustomMDX } from "@/components/mdx";
 
 type tParams = Promise<{ slug: string }>;
 
@@ -29,6 +30,11 @@ export default async function Page({ params }: { params: tParams }) {
                     </div>
                 </Container>
             </Header>
+            <Container>
+                <article className="prose">
+                    <CustomMDX source={post.content} />
+                </article>
+            </Container>
         </>
     )
 }
