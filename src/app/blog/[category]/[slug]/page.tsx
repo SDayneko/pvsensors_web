@@ -3,14 +3,23 @@ import { formatDate, getBlogPosts } from "../../utils";
 import Container from "@/components/Container";
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import { CustomMDX } from "@/components/mdx";
+import { notFound } from "next/navigation";
 
 type tParams = Promise<{ slug: string }>;
+
+export async function generateStaticParams() {
+    const posts = getBlogPosts();
+  
+    return posts.map((post) => ({
+      slug: post.slug,
+    }))
+  }
 
 export default async function Page({ params }: { params: tParams }) {
     const { slug } = await params;
     const post = getBlogPosts().find((post) => post.slug === slug);
     if (!post) {
-      return <>Test {slug}</>;
+        notFound();
     }
     return(
         <>

@@ -7,6 +7,14 @@ import CardCategory from "@/components/CardCategory";
 
 type tParams = Promise<{ category: string }>;
 
+export async function generateStaticParams() {
+  const posts = getBlogPosts();
+
+  return posts.map((post) => ({
+    category: post.metadata.category,
+  }))
+}
+
 export default async function Page({ params }: { params: tParams }){
   const { category } = await params;
   const posts = getBlogPosts().filter(
