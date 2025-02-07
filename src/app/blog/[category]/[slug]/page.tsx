@@ -5,15 +5,15 @@ import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import { CustomMDX } from "@/components/mdx";
 import { notFound } from "next/navigation";
 
-type tParams = Promise<{ slug: string }>;
-
 export async function generateStaticParams() {
     const posts = getBlogPosts();
   
     return posts.map((post) => ({
       slug: post.slug,
-    }))
+    }));
   }
+
+type tParams = Promise<{ slug: string }>;
 
 export default async function Page({ params }: { params: tParams }) {
     const { slug } = await params;
