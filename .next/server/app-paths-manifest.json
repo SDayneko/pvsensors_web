@@ -1,10 +1,12 @@
 {
+  "/api/devices/route": "app/api/devices/route.js",
+  "/api/upload-firmware/route": "app/api/upload-firmware/route.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
   "/(auth)/sign-up/page": "app/(auth)/sign-up/page.js",
   "/(auth)/sign-in/page": "app/(auth)/sign-in/page.js",
   "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
-  "/blog/[category]/page": "app/blog/[category]/page.js",
-  "/blog/[category]/[slug]/page": "app/blog/[category]/[slug]/page.js"
+  "/blog/[category]/[slug]/page": "app/blog/[category]/[slug]/page.js",
+  "/blog/[category]/page": "app/blog/[category]/page.js"
 }

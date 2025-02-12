@@ -12,7 +12,9 @@ const adapter = PrismaAdapter(db)
  
 export const { auth, handlers, signIn, signOut } = NextAuth({
   adapter,
-  providers: [GitHub, Credentials({
+  providers: [GitHub, 
+    
+    Credentials({
     credentials: {
       email: {},
       password: {},
