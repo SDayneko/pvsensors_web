@@ -1,7 +1,7 @@
 import Container from "@/components/Container";
 import LatestPosts from "@/components/home/latest-posts";
-import TeensyUpdater from "@/components/TeensyUpdater";
-import USBWebcam from "@/components/USBwebcam";
+// import TeensyUpdater from "@/components/TeensyUpdater";
+// import USBWebcam from "@/components/USBwebcam";
 
 export default async function Home() {
   
@@ -12,8 +12,8 @@ export default async function Home() {
           <LatestPosts />
         </div>
       </main>
-      <USBWebcam />
-      <TeensyUpdater />
+      {/* <USBWebcam /> */}
+      {/* <TeensyUpdater /> */}
     </Container>
   );
 }
